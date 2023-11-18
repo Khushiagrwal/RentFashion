@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<br><br>
+<div>
+    <form action="/products" class="max-auto" method="post">
+        <label for="name"> Name:</label>
+            <input type="text" name="name" placeholder="Name of the product">
+<br>
+        <label for="image"> Name:</label>
+            <input type="text" name="image" placeholder="Upload image of the product">
+        <br>
+        <label for="price"> Price:</label>
+            <input type="text" name="price" placeholder="Price of the product"> 
+        <br>
+        <label for="Description">Desc:</label>
+            <textarea name="desc" id=""  rows="4"></textarea placeholder="Description of the product">
+                <br>
+        <button> Upload products</button>
+    </form>
+</div>
+</body>
+</html>
