@@ -11,8 +11,10 @@
             <h3>₹ <%=item.price%></h3>
             <div><%=item.desc%></div>
             <a href="/products/<%=item._id%>">View Product</a>
+            <%if(currentUser && currentUser.role==='seller' ){%>
             <form action="/products/<%=item._id%>?_method=delete" method="post">
             <button>Delete</button>
+            <%}%>
             </form>
         </ul>
         <br>  

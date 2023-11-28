@@ -9,19 +9,22 @@
         <li class="nav-item active">
           <a class="nav-link" href="/products">Home </span></a>
         </li>
+        <%if(currentUser && currentUser.role==='seller' ){%>
         <li class="nav-item">
           <a class="nav-link" href="/product/new">Upload Products</a>
         </li>
+        <%}%>
         <%if(!currentUser){%>
         <li>
           <a class="nav-link" href="/login">Login</a>
         </li>
         <%} else {%>
         <li>
+          <a href="#" class="nav-link">Hello <%=currentUser.username%> </a>
           <div class="d-flex">
-            <a href="#" class="nav-link">
+            <a href="/user/cart" class="nav-link">
               <i class="fa-duotone fa-cart-shopping"></i>
-              <sup><span class="badge bg-danger"></span></sup>
+              <sup><span class="badge bg-danger"><%=currentUser.cart.length%></span></sup>
               cart
             </a>
           </div>

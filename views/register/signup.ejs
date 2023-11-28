@@ -3,6 +3,17 @@
     <form action="/register"  method="post" >
        <div class="container">
             <h1>Signup</h1>
+            <div class="mb-2">
+            <p class="mb-3">Want to register as?</p>
+            <div class="mx-2">
+                <label  class="form-control" for="">Buyer    :
+                <input type="radio" class="form-check-input" name="role" id="buyer" value="buyer" > </label> 
+            </div>
+            <div class="mx-2">
+                <label  class="form-control" for="">Seller   :
+                <input type="radio" class="form-check-input" name="role" id="seller" value="seller">  </label>
+            </div>
+            </div>
             <input   name="username" type="text" placeholder="Name">
             <input   name="email" type="email" placeholder="Email">
             <input   name="password" type="password" placeholder="Password"><br>

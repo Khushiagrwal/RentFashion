@@ -1,3 +1,7 @@
+// if(process.env.NODE_ENV!="production")
+// {
+//   require('dotenv').config();
+// }
 const express = require('express');
 const app = express();
 const DbConnection=require("./ProductDB")
@@ -8,13 +12,19 @@ const ejsMate=require('ejs-mate')
 const methodOverride = require("method-override");
 const reviewRoutes=require("./routes/review");
 const cookiesRoutes=require("./routes/cookies");
+const sessionRoutes=require("./routes/session");
 const flash=require("connect-flash"); 
 const session=require("express-session")
+const cartRoutes=require("./routes/cart")
+
 const configSession=session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  // cookie: { secure: true }
+  cookie: { httpOnly: true, 
+    expires:Date.now()+ 24*7*60*60*100,
+    maxAge:24*7*60*60*100
+  }
 });
 // const cors=require("cors");
 
@@ -46,11 +56,12 @@ app.use(express.static(path.join(__dirname , 'public')));
 app.use(express.json());
 
 app.use(methodOverride('_method'));
-
 app.use(productRoutes);
 app.use(reviewRoutes);
 app.use(cookiesRoutes);
 app.use(authRoutes);
+app.use(sessionRoutes)
+app.use(cartRoutes);
 
 DbConnection;
 app.get("/connect",(req,res)=>{
