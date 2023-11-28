@@ -2,8 +2,10 @@ const express=require("express");
 const router=express.Router();
 const Product =require("../models/Product")
 const Review= require("../models/Review")
+const validateReview=require("../middleware")
 
 router.post('/products/:id/review',async(req,res)=>{
+    try{
     let {id}=req.params;
     let{rating,comment}=  req.body;
     const product=await Product.findById(id);
@@ -12,7 +14,13 @@ router.post('/products/:id/review',async(req,res)=>{
     product.reviews.push(review);
     await review.save();
     await product.save();
-    res.redirect(`/products/${id}`    );
+    // req.flash('info', 'Review Added successfully')
+    res.redirect(`/products/${id}`);
+    }
+    catch(err)
+    {
+        res.status(404).render('/products/error')
+    }
 })
 
 module.exports=router;

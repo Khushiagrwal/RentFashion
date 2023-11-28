@@ -18,4 +18,4 @@ const products=[
         await Product.insertMany(products);
         console.log("initialize data ")
     }
-    module.exports =seedDB;
+module.exports =seedDB;

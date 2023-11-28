@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<br><br>
+<div>
+    <h1>Accessories</h1>
+    <%for(let item of products){%>
+        <%if(item.type==='Accessories'){%>
+        <ul>
+            <h1><%=item.name%></h1>
+            <img src="<%=item.image%>" alt="">
+            <h3>₹ <%=item.price%></h3>
+            <div><%=item.desc%></div>
+            <a href="/products/<%=item._id%>">View Product</a>
+            <form action="/products/<%=item._id%>?_method=delete" method="post">
+            <button>Delete</button>
+            </form>
+        </ul>
+        <br>
+        <%}%>
+    <%}%>
+</div>
+<%- include('../partials/footer') %>
+</body>
+</html>

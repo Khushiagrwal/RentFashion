@@ -38,18 +38,21 @@
                 <button>Submit</button>
             </form>
             <br><br>
-            <h6>Reviews</h6>
-            <div>
+            <div><% if(foundProduct.reviews.length >0){%>
+                <h6>Reviews</h6>
+            <%}%>
                 <% for(let review of foundProduct.reviews){%>
                     <h5><%=review.rating%></h5>
                     <h5><%=review.comment%></h5>
                     <br>
                 <%}%>
             </div>
+           
         </div>
     </ul>
     <br>
     
 </div>
+<%- include('../partials/footer') %>
 </body>
 </html>

@@ -2,21 +2,83 @@
 <%- include('../partials/navbar') %>
 <br><br>
 <div>
-    <form action="/products" class="max-auto" method="post">
+    <form action="/products" class="max-auto row g-3 needs-validation" method="post" novalidate>
+        <div>
         <label for="name"> Name:</label>
-            <input type="text" name="name" placeholder="Name of the product">
-<br>
-        <label for="image"> Name:</label>
-            <input type="text" name="image" placeholder="Upload image of the product">
-        <br>
+            <input type="text" name="name" placeholder="Name of the product" required>
+<br>    <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please choose a Productname.
+        </div>
+        </div>
+        <div>
+            <select name="type" type="text" >
+                <option value="">Choose categories</option>
+                <option value="Women">Women</option>
+                <option value="Men">Men</option>
+                <option value="Footwear">Footwear</option>
+                <option value="Accessories">Accessories</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please choose a Productname.
+            </div>
+        </div>
+        <div>
+        <label for="image"> Image:</label>
+            <input type="text" name="image" placeholder="Upload image of the product" required>
+        
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a url.
+        </div>
+        </div>
+        <div>
         <label for="price"> Price:</label>
-            <input type="text" name="price" placeholder="Price of the product"> 
-        <br>
+            <input type="text" name="price" placeholder="Price of the product" required> 
+        <br>    
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please choose a Product price.
+        </div>
+        </div>
+        <div>
         <label for="Description">Desc:</label>
             <textarea name="desc" id=""  rows="4"></textarea placeholder="Description of the product">
                 <br>
         <button> Upload products</button>
+        </div>
     </form>
 </div>
+<script>
+    (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+<%- include('../partials/footer') %>
 </body>
 </html>
