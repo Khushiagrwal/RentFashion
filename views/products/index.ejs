@@ -2,23 +2,11 @@
 <%- include('../partials/navbar') %>
 <br><br>
 <div>
+    <a href="/products/women"><img src="https://manyavar.scene7.com/is/image/manyavar/I02_IMGL2778_02-02-2021-18-42:283x395" alt="">women</a>
+    <a href="/products/men"><img src="https://manyavar.scene7.com/is/image/manyavar/I02_IMGL2778_02-02-2021-18-42:283x395" alt="">Men</a>
+    <a href="/products/Footwear"><img src="https://manyavar.scene7.com/is/image/manyavar/I02_IMGL2778_02-02-2021-18-42:283x395" alt="">Footwear</a>
+    <a href="/products/accessories"><img src="https://manyavar.scene7.com/is/image/manyavar/I02_IMGL2778_02-02-2021-18-42:283x395" alt="">Accessories</a>
     
-    <%for(let item of products){%>
-        <ul>
-            <h1><%=item.type%></h1>
-            <h1><%=item.name%></h1>
-            <img src="<%=item.image%>" alt="">
-            <h3>₹ <%=item.price%></h3>
-            <div><%=item.desc%></div>
-            <a href="/products/<%=item._id%>">View Product</a>
-            <%if(currentUser && currentUser.role==='seller' ){%>
-            <form action="/products/<%=item._id%>?_method=delete" method="post">
-            <button>Delete</button>
-            <%}%>
-            </form>
-        </ul>
-        <br>  
-    <%}%>
 </div>
 <%- include('../partials/footer') %>
 </body>

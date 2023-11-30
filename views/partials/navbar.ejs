@@ -19,15 +19,15 @@
           <a class="nav-link" href="/login">Login</a>
         </li>
         <%} else {%>
+          <li>
+            <a href="#" class="nav-link">Hello <%=currentUser.username%> </a>
+          </li>
         <li>
-          <a href="#" class="nav-link">Hello <%=currentUser.username%> </a>
-          <div class="d-flex">
             <a href="/user/cart" class="nav-link">
               <i class="fa-duotone fa-cart-shopping"></i>
               <sup><span class="badge bg-danger"><%=currentUser.cart.length%></span></sup>
               cart
             </a>
-          </div>
         </li>
         <li>
           <a href="/logout" class="nav-link">logout</a>

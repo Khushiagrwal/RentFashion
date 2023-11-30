@@ -7,11 +7,63 @@ const { isProductAuthor,isLoggedIn, isSeller } = require("../middleware");
 
 
 // To show products 
-router.get("/products",isLoggedIn,async(req,res)=>
+router.get("/products",async(req,res)=>
 {
     try{
     let products=await Product.find({});
     res.render('products/index',{products})
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(500).render('products/error', { error: err });
+    }
+});
+router.get("/products/women",async(req,res)=>
+{
+    try{
+    let products=await Product.find({});
+    const result = products.filter((word) =>word.type ==="Women");
+    res.render('products/women',{result})
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(500).render('products/error', { error: err });
+    }
+});
+router.get("/products/men",async(req,res)=>
+{
+    try{
+    let products=await Product.find({});
+    const result = products.filter((word) =>word.type ==="Men");
+    res.render('products/men',{result})
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(500).render('products/error', { error: err });
+    }
+});
+router.get("/products/footwear",async(req,res)=>
+{
+    try{
+    let products=await Product.find({});
+    const result = products.filter((word) =>word.type ==="Footwear");
+    res.render('products/footwear',{result})
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(500).render('products/error', { error: err });
+    }
+});
+router.get("/products/accessories",async(req,res)=>
+{
+    try{
+    let products=await Product.find({});
+    const result = products.filter((word) =>word.type ==="Accessories");
+    res.render('products/accessories',{result})
     }
     catch(err)
     {
@@ -47,7 +99,7 @@ router.post("/products",isLoggedIn,isSeller,async(req,res)=>{
 });
 
 // To show particular product
-router.get("/products/:id",isLoggedIn,async(req,res)=>{
+router.get("/products/:id",async(req,res)=>{
     try{
     let {id}=req.params;
     let foundProduct=await Product.findById(id).populate('reviews');
