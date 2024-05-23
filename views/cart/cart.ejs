@@ -1,12 +1,59 @@
 <% layout('layouts/boilerplate') %>
 <%- include('../partials/navbar') %>
-<ul>
+<ul class="cart">
+   <h1>My Cart</h1> 
     <%if(user.cart.length==0){%>
-        <h1>your cart is empty</h1>
+      <div class="empty-card-main">
+        <div class="empty-card">
+            <div class="empty-cart-content">
+                <h3>Your cart is empty</h3>
+            <p>There are no items in your cart. Let’s add something</p>
+            <div class="cart-btn-main">
+                <div class="cart-btn-empty"><a href="#">CONTINUE SHOPPING</a></div>
+
+            </div>
+            </div>
+            
+        </div>
+      </div>
+        
     <%}%>
-    <%for(let item of user.cart){%>
-        <li><%=item.name%></li>
-        <img src="<%=item.image%>" alt="">
-        <li><%=item.price%></li>
-    <%}%>
+    <!-- <%for(let item of user.cart){%>
+        <div class="filled-cart">
+            <div>
+                <h1> <li><%=item.name%></li></h1>
+                <div><img src="<%=item.image%>" alt=""></div>
+                <li><%=item.price%></li>
+            </div>
+        </div>   
+    <%}%> -->
+
+
+
+
+
+    <div class="cart-container">
+        <% for (let item of user.cart) { %>
+          <div class="filled-cart-main">
+            <!-- Your item content here -->
+            
+            <div><img src="<%=item.image%>" alt="" style="width: 300px;height: 400px;"></div>
+            <div class="cart-detail">
+                <div>
+                    <li style="justify-content: center;"><%=item.name%></li>
+                    <li style="justify-content: center;"><%=item.price%></li>
+                    <div class="cart-btn"><a href="/product/payment">BUY</a> </div>
+                    <form class="d-inline-block" action="/user/<%=item._id%>?_method=delete" method="post">
+                      <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+        
+                </div>
+               
+            </div>
+            
+          </div>
+        <% } %>
+      </div>
+      
 </ul>
+<%- include('../partials/footer') %>
