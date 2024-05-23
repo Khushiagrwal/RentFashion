@@ -16,9 +16,8 @@
 /*Start Login Style*/
 .login{
     float:left;
-    background-color: #fafafa;
+    background-color: #fffbf2;
     height: 100%;
-    border-radius: 10px 0 0 10px;
     text-align: center;
     padding-top: 100px;
 }
@@ -32,21 +31,27 @@ input[type="username"] , input[type="password"]{
     padding: 10px;
     margin-bottom: 30px;
     border: none;
-    background-color: #eeeeef;
+    background-color: #fffbf2;
+    border: grey 0.5px solid;
+    border-radius: 25px;
 }
 input[type="email"] , input[type="email"]{
     width: 100%;
     padding: 10px;
     margin-bottom: 30px;
     border: none;
-    background-color: #eeeeef;
+    background-color: #fffbf2;
+    border: grey 0.5px solid;
+    border-radius: 25px;
 }
 input[type="text"] , input[type="text"]{
     width: 100%;
     padding: 10px;
     margin-bottom: 30px;
     border: none;
-    background-color: #eeeeef;
+    background-color: #fffbf2;
+    border: grey 0.5px solid;
+    border-radius: 25px
 }
 input[type="checkbox"]{
     float: left;
@@ -61,13 +66,13 @@ input[type="checkbox"]{
     color: #000;
     transition: 0.3s all ease-in-out;
 }
-.login a:hover{color: #9526a9;font-weight: bold}
+.login a:hover{color: #e04e1c;font-weight: bold}
 .login button{
     width: 100%;
     margin: 30px 0;
     padding: 10px;
     border: none;
-    background-color: #9526a9;
+    background-color: #e04e1c;
     color: #fff;
     font-size: 20px;
     cursor: pointer;
@@ -102,38 +107,4 @@ input[type="checkbox"]{
 .login .copyright{
     display: inline-block;
     float: none;
-}
-/*Start Register Style*/
-.register{
-    float: right;
-    background-image: linear-gradient(135deg, #23212f 5%, #9526a9 95%);
-    height: 100%;
-    color:#fff;
-    border-radius:  0 10px 10px  0;
-    text-align: center;
-    padding: 100px 0;
-}
-.register h2{
-    margin: 30px 0;
-    font-size: 50px;
-    letter-spacing: 3px
-}
-.register p{
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-.register button{
-    background-color: transparent;
-    border: 1px solid #FFF;
-    border-radius: 20px;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 20px;
-    text-transform: uppercase;
-    transition:0.2s all  ease-in-out;
-}
-.register button:hover{
-    color: #9526a9;
-    background-color: #fff;
-    cursor: pointer;
 }
