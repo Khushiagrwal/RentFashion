@@ -17,7 +17,7 @@ body {
 }
 
 .footer {
-	background-color: #151515;
+	background-color: #875031;
 	padding: 80px 0;
 }
 
@@ -108,3 +108,16 @@ ul {
 		width: 100%;
 	}
 }
+.footer-bottom-content{
+	padding: 0px;
+	text-align: center;
+	margin-top: 10px;
+  }
+  .footer-bottom-content p{
+	font-size: 17px;
+	font-weight: 550;
+  }
+  .footer-bottom-content p a{
+	color: #b2744c;
+	font-weight: 600;
+  }
